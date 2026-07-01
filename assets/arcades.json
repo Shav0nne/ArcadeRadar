@@ -1,0 +1,119 @@
+[
+  {
+    "id": 1,
+    "name": "Blast Galaxy",
+    "address": "Kruiskade 12, Rotterdam",
+    "lat": 51.9225,
+    "lng": 4.47917,
+    "image": "https://monsterminigolf.com/wp-content/uploads/2023/06/20200710_134448-scaled-1.jpg",
+    "description": "Retro en moderne arcade games. 50+ machines."
+  },
+  {
+    "id": 2,
+    "name": "Game State",
+    "address": "Wijnhaven 24, Rotterdam",
+    "lat": 51.9208,
+    "lng": 4.4787,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_lWLZd408BD4v1_HgzoEBaNfHG1-Ax1h5vesBlQSlf-YuTIzK1k4ba7Ma&s=10",
+    "description": "Grootste arcade van Zuid-Holland. VR en klassiekers."
+  },
+  {
+    "id": 3,
+    "name": "Retro Arcade",
+    "address": "Oude Binnenweg 45, Rotterdam",
+    "lat": 51.9245,
+    "lng": 4.4732,
+    "image": "https://jenks-uploads.nyc3.digitaloceanspaces.com/wp-content/uploads/2024/05/31111513/ARCADES.jpg",
+    "description": "Old-school arcade hal met klassieke games uit de jaren 80."
+  },
+  {
+    "id": 4,
+    "name": "The Pinball Wizard",
+    "address": "Hoogstraat 104, Rotterdam",
+    "lat": 51.9201,
+    "lng": 4.4854,
+    "image": "https://images.unsplash.com/photo-1605899435973-ca2d1a8861cf?w=400",
+    "description": "Een paradijs voor flipperkastliefhebbers met kasten uit alle decennia."
+  },
+  {
+    "id": 5,
+    "name": "Pixel Palace",
+    "address": "Lange Kerkstraat 12, Schiedam",
+    "lat": 51.9168,
+    "lng": 4.4032,
+    "image": "https://images.unsplash.com/photo-1551103782-8ab07afd45c1?w=400",
+    "description": "Gezellige arcadehal net buiten Rotterdam met focus op Japanse ritmegames."
+  },
+  {
+    "id": 6,
+    "name": "Neon Dreams Arcade",
+    "address": "Korte Hoogstraat 3, Vlaardingen",
+    "lat": 51.9124,
+    "lng": 4.3415,
+    "image": "https://static.wixstatic.com/media/72c363_0aa2b0f747ba4fb08df11c51184a22af~mv2.png/v1/fill/w_344,h_356,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Plymouth%20Continue%20Arcades.png",
+    "description": "Prachtige cyberpunk-style arcade met race-simulators en vechtspellen."
+  },
+  {
+    "id": 7,
+    "name": "Cyber Zone VR & Arcade",
+    "address": "Rivium Boulevard 40, Capelle aan den IJssel",
+    "lat": 51.9055,
+    "lng": 4.5492,
+    "image": "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=400",
+    "description": "Geavanceerd virtual reality centrum gecombineerd met moderne ticket-arcades."
+  },
+  {
+    "id": 8,
+    "name": "Joystick Junction",
+    "address": "Middenbaan 82, Barendrecht",
+    "lat": 51.8561,
+    "lng": 4.5322,
+    "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400",
+    "description": "Knusse familiestudio vol met nostalgische multiplayer kasten."
+  },
+  {
+    "id": 9,
+    "name": "Mega Play Center",
+    "address": "Uitstraat 15, Spijkenisse",
+    "lat": 51.8449,
+    "lng": 4.3291,
+    "image": "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400",
+    "description": "Grootschalig entertainment center met airhockey, basketbal en schietspellen."
+  },
+  {
+    "id": 10,
+    "name": "Dordtse Arcade Haven",
+    "address": "Voorstraat 210, Dordrecht",
+    "lat": 51.8152,
+    "lng": 4.6689,
+    "image": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=400",
+    "description": "Arcade gevestigd in een historisch pand met een unieke mix van oud en nieuw."
+  },
+  {
+    "id": 11,
+    "name": "The Next Level",
+    "address": "Zuidplein 60, Rotterdam",
+    "lat": 51.8864,
+    "lng": 4.4883,
+    "image": "https://images.unsplash.com/photo-1523821741446-edb2b68bb7a0?w=400",
+    "description": "Gelegen in winkelcentrum Zuidplein. Perfect voor een snelle game-sessie."
+  },
+  {
+    "id": 12,
+    "name": "Laser & Arcade World",
+    "address": "Doklaan 10, Rotterdam",
+    "lat": 51.8988,
+    "lng": 4.4641,
+    "image": "https://images.unsplash.com/photo-1553481187-be93c21490a9?w=400",
+    "description": "Combineer lasergamen met een indrukwekkende selectie arcadekasten bij Charlois."
+  },
+  {
+    "id": 13,
+    "name": "Insert Coin Retro Bar",
+    "address": "Witte de Withstraat 88, Rotterdam",
+    "lat": 51.9161,
+    "lng": 4.4774,
+    "image": "https://images.unsplash.com/photo-1513829092375-39bc4104c44e?w=400",
+    "description": "Een gezellige bar waar je onder het genot van een drankje klassieke NES en SEGA games kunt spelen."
+  }
+]
