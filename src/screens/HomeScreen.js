@@ -1,47 +1,61 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, FlatList } from 'react-native';
+import React, { useCallback, useEffect, useState } from 'react';
+import { View, Text, FlatList, ActivityIndicator, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 import { useTheme } from '../context/ThemeContext';
-import sanitizeArcade from '../services/sanitizeArcade';
-
-const arcadesData = require('../../assets/arcades.json');
+import { fetchArcades } from '../services/api';
 
 export default function HomeScreen({ navigation }) {
     const { colors } = useTheme();
     const [arcades, setArcades] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        setArcades(arcadesData.map(item => sanitizeArcade(item)));
+    const loadData = useCallback(async () => {
+        try {
+            setLoading(true);
+            const data = await fetchArcades();
+            setArcades(data);
+        } catch (error) {
+            Alert.alert('Error', 'Kon de arcades niet laden.');
+        } finally {
+            setLoading(false);
+        }
     }, []);
 
-    const renderCard = ({ item }) => (
+    useEffect(() => {
+        loadData();
+    }, [loadData]);
+
+    const renderItem = ({ item }) => (
         <TouchableOpacity
-            style={[
-                styles.card,
-                {
-                    backgroundColor: colors.card,
-                    borderColor: colors.border,
-                }
-            ]}
+            style={[styles.card, { backgroundColor: colors.card, borderColor: colors.border }]}
             onPress={() => navigation.navigate('Detail', { arcade: item })}
-            activeOpacity={0.7}
         >
             <Text style={[styles.name, { color: colors.primary }]}>{item.name}</Text>
             <Text style={[styles.address, { color: colors.textSecondary }]}>{item.address}</Text>
-            <Text style={[styles.desc, { color: colors.textSecondary }]}>{item.description}</Text>
-            <View style={[styles.cardFooter, { borderTopColor: colors.border }]}>
-                <Text style={[styles.action, { color: colors.secondary }]}>PLAY</Text>
-            </View>
+            <Text style={[styles.meta, { color: colors.textSecondary }]}>{item.description}</Text>
         </TouchableOpacity>
     );
 
     return (
         <View style={[styles.container, { backgroundColor: colors.background }]}>
-            <FlatList
-                data={arcades}
-                keyExtractor={(item) => item.id.toString()}
-                renderItem={renderCard}
-                contentContainerStyle={styles.list}
-            />
+            <View style={[styles.header, { backgroundColor: colors.card, borderBottomColor: colors.border }]}>
+                <Text style={[styles.headerText, { color: colors.primary }]}>ARCADE RADAR</Text>
+            </View>
+
+            {loading ? (
+                <View style={styles.center}>
+                    <ActivityIndicator size="large" color={colors.primary} />
+                </View>
+            ) : (
+                <FlatList
+                    data={arcades}
+                    keyExtractor={(item) => String(item.id)}
+                    renderItem={renderItem}
+                    contentContainerStyle={styles.list}
+                    ListEmptyComponent={
+                        <Text style={[styles.empty, { color: colors.textSecondary }]}>Geen arcades gevonden.</Text>
+                    }
+                />
+            )}
         </View>
     );
 }
@@ -50,48 +64,51 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
+    header: {
+        paddingHorizontal: 20,
+        paddingVertical: 18,
+        borderBottomWidth: 2,
+        alignItems: 'center',
+    },
+    headerText: {
+        fontSize: 20,
+        letterSpacing: 2,
+        fontWeight: 'bold',
+        fontFamily: 'monospace',
+    },
     list: {
         padding: 16,
     },
     card: {
-        borderRadius: 8,
-        marginBottom: 16,
         borderWidth: 2,
+        borderRadius: 12,
         padding: 16,
-        elevation: 4,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 4 },
-        shadowOpacity: 0.3,
-        shadowRadius: 4,
+        marginBottom: 12,
     },
     name: {
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: 'bold',
+        marginBottom: 4,
         fontFamily: 'monospace',
-        letterSpacing: 1,
     },
     address: {
-        fontSize: 13,
-        marginTop: 6,
-        fontFamily: 'monospace',
-    },
-    desc: {
         fontSize: 12,
-        marginTop: 6,
+        marginBottom: 8,
         fontFamily: 'monospace',
     },
-    cardFooter: {
-        flexDirection: 'row',
-        justifyContent: 'flex-end',
+    meta: {
+        fontSize: 12,
+        lineHeight: 18,
+        fontFamily: 'monospace',
+    },
+    center: {
+        flex: 1,
+        justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 12,
-        borderTopWidth: 1,
-        paddingTop: 12,
     },
-    action: {
-        fontSize: 12,
-        fontWeight: 'bold',
-        letterSpacing: 2,
+    empty: {
+        textAlign: 'center',
+        marginTop: 40,
         fontFamily: 'monospace',
     },
 });
